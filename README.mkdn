@@ -1,50 +1,64 @@
-CyanogenMod - Victor-Mod
+Victor-android CM7-mod
 ===========
 
-Submitting Patches
+获取源码
 ------------------
-Patches are always welcome!  Please submit your patches via CyanogenMod Gerrit!
-You can do this by using these commands:
 
-    (From root android directory)
-    . build/envsetup.sh
-    (Go to repo you are patching, make your changes and commit)
-    cmgerrit <for(new)/changes(patch set)> <branch/change-id> 
+访问 [Git and Repo](http://source.android.com/download/using-repo)获知怎么使用Git与Repo.
 
-    repo start gingerbread .
-    (Make your changes and commit)
-    repo upload .
-Note: "." meaning current directory
-For more help on using this tool, use this command: repo help upload
-
-Make your changes and commit with a detailed message, starting with what you are working with (i.e. vision: Update Kernel)
-Commit your patches in a single commit. Squash multiple commit using this command: git rebase -i HEAD~<# of commits>
-
-To view the status of your and others' patches, visit [CyanogenMod Code Review](http://review.cyanogenmod.com/)
-
-
-Getting Started
----------------
-
-To get started with Android/CyanogenMod, you'll need to get
-familiar with [Git and Repo](http://source.android.com/download/using-repo).
-
-To initialize your local repository using the CyanogenMod trees, use a command like this:
+获取源码前，初始化本地库:
 
     repo init -u git://github.com/Victor-android/android.git -b gingerbread
 
-Then to sync up:
+接下来同步源码:
 
-    repo sync
+    repo sync -j5
 
-Please see the [CyanogenMod Wiki](http://wiki.cyanogenmod.com/) for building instructions.
 
-For more information on this Github Organization and how it is structured, 
-please [read the wiki article](http://wiki.cyanogenmod.com/index.php/Github_Organization)
+安装依赖
+------------------
+添加java6源
+sudo add-apt-repository "deb http://archive.canonical.com/ maverick partner" 
+sudo apt-get update
 
-Buildbot
---------
+安装相关依赖
+CM社区建议：
+For 32-bit & 64-bit systems:
+sudo apt-get install git-core gnupg flex bison gperf libsdl1.2-dev libesd0-dev libwxgtk2.6-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev sun-java6-jdk pngcrush schedtool
+For 64-bit only systems:
+sudo apt-get install g++-multilib lib32z1-dev lib32ncurses5-dev lib32readline5-dev gcc-4.3-multilib g++-4.3-multilib
 
-All supported devices are built nightly and periodically as changes are committed to ensure the source trees remain buildable.
+谷歌官方建议64-bit：
+sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev ia32-libs x11proto-core-dev libx11-dev lib32readline5-dev lib32z-dev
 
-You can view the current build statuses at [buildbot.teamdouche.net](http://buildbot.teamdouche.net/)
+
+设置默认java版本
+sudo update-alternatives --config java
+查看当前java版本
+java -version
+
+编译源码
+------------------
+接下来就是编译了:
+
+    source build/env*
+    lunch
+
+由于CM的源码使用了非公开API，所以编译前需要:
+
+    make update-api
+
+    make -j2
+
+或者错误输出到日志:
+
+    make -j2 2>log.txt 
+
+或者全部输出到日志:
+
+    make -j2 &>log.txt
+
+CM官方提供编译命令:
+
+     . build/envsetup.sh && brunch raise -j2
+
