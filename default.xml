@@ -29,7 +29,7 @@
   <project path="device/common" name="device/common" />
   <project path="device/htc/common" name="CyanogenMod/android_device_htc_common" remote="github" />
   <project path="device/zte/blade" name="android_device_zte_blade" remote="victor" />
-  <project path="device/zte/raise" name="android_device_zte_raise" remote="victor" />
+  <!-- <project path="device/zte/raise" name="android_device_zte_raise" remote="victor" /> 移除raise-->
   <project path="device/sample" name="device/sample" />
   <project path="external/alsa-lib" name="CyanogenMod/android_external_alsa-lib" remote="github" />
   <project path="external/alsa-utils" name="CyanogenMod/android_external_alsa-utils" remote="github" />
