@@ -1,10 +1,10 @@
 Victor-android CM7-mod
 ===========
 
-安装repo,进入linux系统根目录
+安装repo
 
-curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo
-chmod a+x ~/bin/repo
+curl http://android.git.kernel.org/repo >~/../bin/repo
+chmod a+x ~/../bin/repo
 
 获取源码
 ------------------
