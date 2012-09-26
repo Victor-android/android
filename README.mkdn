@@ -19,7 +19,7 @@ Victor-android CM7-mod
 ------------------
 添加java6源:
 
-    sudo add-apt-repository "deb http://archive.canonical.com/ maverick partner" 
+    sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ hardy multiverse" 
     sudo apt-get update
 
 安装相关依赖
