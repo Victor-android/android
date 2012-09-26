@@ -5,16 +5,6 @@ Victor-android CM7-mod
 
 curl https://dl-ssl.google.com/dl/googlesource/git-repo/repo > ~/bin/repo
 chmod a+x ~/bin/repo
-alias repo="~/bin/repo"
-
-
-本来如此即可，但是我们需要随时都能运行repo的话，最好把repo配置到环境中去：
-
-vim ~/.bashrc
-
-#打开后，在文件最后面加上alias repo="~/bin/repo"，然后保存退出
-
-source ~/.bashrc
 
 获取源码
 ------------------
