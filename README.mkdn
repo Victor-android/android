@@ -4,6 +4,7 @@ Victor-android CM7-mod
 安装repo
 
 curl http://android.git.kernel.org/repo >~/../bin/repo
+
 chmod a+x ~/../bin/repo
 
 获取源码
